@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body bgcolor='lightgreen'>
+ {% csrf_token %}
+<center>
+    <h1>StudentsInformation</h1>
+</center>
+<table bgcolor="pink" border="5" width="100%">
+    <thead>
+        <th> Id </th>
+        <th> Trainer_Name </th>
+        <th> Student_Name</th>
+        <th> Mobile_no </th>
+        <th> Course </th>
+        <th> Duration </th>
+        <th> Time_slot </th>
+
+     </thead>
+    {% for i in StudentsInformation %}
+    <tr>
+        <td> {{i.id}}</td>
+        <td> {{i.trainer_name}}</td>
+        <td> {{i.student_name}}</td>
+        <td> {{i.mob_no}}</td>
+        <td> {{i.course}}</td>
+        <td> {{i.duration}}</td>
+        <td> {{i.time_slot}}</td>
+    </tr>
+    {% endfor %}
+    <br>
+
+</table>
+    <center><a href="{% url 'log out' %}">Log Out</a></center>
+
+</body>
+</html>

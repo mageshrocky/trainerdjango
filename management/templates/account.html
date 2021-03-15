@@ -1,0 +1,29 @@
+<head>
+	<title></title>
+</head>
+<body bgcolor="lightblue">
+	<center>
+	<h1>CREATE ACCOUNT</h1>
+	<hr>
+<form action="" method="post">
+	{% csrf_token %}
+	Enter your Name: <input type="text" placeholder="username" name="your_name">
+	<br>
+	<br>
+	Enter your Mail id: <input type="text" placeholder="mail id" name="your_email">
+	<br>
+	<br>
+	Enter your Password: <input type="text" placeholder="password" name="your_pwd">
+	<br>
+	<br>
+	Enter your Role: <input type="text" placeholder="role" name="your_role">
+	<br>
+	<br>
+
+	<input type="submit" value="Sign Up" name="enquiry">
+	<input type="reset" value="Cancel" name="enquiry">
+
+</form>
+</center>
+</body>
+</html>

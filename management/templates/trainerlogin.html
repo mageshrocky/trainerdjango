@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LOGIN</title>
+</head>
+<body>
+<form action = "" method="post">
+    {% csrf_token %}
+<center><h1> TRAINER LOGIN</h1> </center>
+<br>
+<center>
+Enter Username:<input type="text" placeholder="Username" name="username">
+<br>
+<br>
+Enter Password:<input type="password" name="pwd">
+<br>
+<br>
+Enter your role:<input type="text" name="role">
+<br>
+<br>
+<input type="submit" value="login" name="login">
+</center>
+
+
+
+</body>
+</html>

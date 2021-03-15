@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+</head>
+<body>
+<form action = "" method="post">
+    {% csrf_token %}
+<center><h1> ADMIN LOGIN</h1> </center>
+<center>
+Enter Username:<input type="text" placeholder="Username" name="user">
+Enter Password:<input type="password" name="pswd">
+<input type="submit" value="login" name="login">
+</center>
+
+
+</form>
+</body>
+</html>
