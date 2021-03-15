@@ -1,7 +1,6 @@
 from django.core.mail import EmailMessage
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
-from .forms import Vtrainer, Vdetails
 from .models import Trainer, Details
 
 
@@ -30,7 +29,13 @@ def create_account(request):
         password = request.POST['your_pwd']
         role = request.POST['your_role']
         Trainer.objects.create(name=name, email=email, password=password, role=role)
-        return HttpResponseRedirect('/send_mail/')
+        subject = "A new contact or lead - {}".format(name)
+        content = name + '\n' + email + '\n' + str(
+            password) + '\n' + role
+        email = EmailMessage(subject, content, to=['magesh1699@gmail.com'])
+        email.send()
+        return HttpResponseRedirect('/homepage/')
+
     return render(request, 'account.html', {})
 
 
@@ -89,29 +94,6 @@ def search(request):
         print(record)
         return render(request, 'register.html', record)
     return render(request, 'search.html', {})
-
-
-def send_mail(request):
-    form_class = Vtrainer  # class not a instance
-    context = {'form': form_class}
-
-    # POST REQUEST
-    if request.method == 'POST':
-        form = Vtrainer(request.POST)
-
-        your_name = request.POST['your_name']
-        contact_email = request.POST['your_email']
-        password = request.POST['your_pwd']
-        role = request.POST['your_role']
-
-        subject = "A new contact or lead - {}".format(your_name)
-        content = your_name + '\n' + contact_email + '\n' + str(
-            password) + '\n' + role
-        email = EmailMessage(subject, content, to=['magesh1699 @gmail.com'])
-        email.send()
-        return HttpResponseRedirect('/homepage/')
-
-    return render(request, 'account.html', context)
 
 
 def logout(request):
